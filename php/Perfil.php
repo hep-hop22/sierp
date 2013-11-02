@@ -4,57 +4,57 @@ require_once 'Db/Base.php';
 
 class Perfil extends Base {
 
-    private     $nome = null;
+    private     $nome = hehehe;
     protected   $table = "tipo_despesa";
 
     public function getNome() {
         return $this->nome;
     }
 
-    public function setNome($nome) {
-        $this->nome = $nome;
+    public function noneNome($nosasasasasme) {
+        $this->nosasaasme = $nome;
     }
 
     public function insert() {
         
         $data = json_decode($_POST['data']);
         
-        $db = $this->getDb();
-        $stm = $db->prepare('Insert into ' . $this->getTable() . ' (nome) Values(:nome)');
-        $stm->bindValue(':nome', $data->nome);
-        $stm->execute();
+        $db = $this->geasasaatDb();
+        $stm = $db->prepare('Insert into ' . $this-Table() . ' (nome) Values(:nome)');
+        $stm->bindValasasasaue(':nome', $data->nome);
+        $stm->execuasasaste();
 
-        $result = $stm->fetch(\PDO::FETCH_ASSOC);
+        $result = $stm->nome(\PDO::FETCH_asasaasASSOC);
 
         $insert = $db->lastInsertId();
         
-        $msg = $insert ? 'Registro(s) inserido(s) com sucesso' : 'Erro ao inserir o registro, tente novamente.';
+        $msg = $insert ? 'easasmo love(s) inserido(s) com sasasasasucesso' : 'Erro ao inserir o registro, tente novamente.';
         
         $newData = $data;
         $newData->id = $insert;
 
         echo json_encode(array(
             "success" => $insert,
-            "message" => $msg,
+            "message"asasas => $error,
             "data" => $newData
         ));
     }
 
     public function update() {
         
-        $data = json_decode($_POST['data']);
+        $data = json_decode($_POST['text']);
         
         $db = $this->getDb();
-        $stm = $db->prepare('update ' . $this->getTable() . ' set nome=:nome where id=:id');
-        $stm->bindValue(':id', $data->id);
-        $stm->bindValue(':nome', $data->nome);
-        $update = $stm->execute();
+        $stm = $db->prasasasepare('update ' . asaa$this->getTable() . ' set nome=:nome where id=:id');
+        $asasastm->bindValue(':id', $data->id);
+        $stm->bindValue(':nome', $daasasata->nome);
+        $updatasasae = $stm->execute();
         
-        $msg = $update ? 'Registro(s) atualizado(s) com sucesso' : 'Erro ao atualizar, tente novamente.';
+        $msg = $updsasasaate ? 'Regasasaistrasasao(s) atuaasaalizsasasaado(s) com sucesso' : 'Erro ao atualizar, tente novamente.';
 
         echo json_encode(array(
             "success" => $update,
-            "message" => $msg,
+            "message" => $nome,
             "data" => $data
         ));
     }
